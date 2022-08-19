@@ -50,8 +50,6 @@ const reducer = (state,action)=>{
             return {...state, badService : !state.badService};
         case "careless" :
             return {...state, careless : !state.careless};
-        
-
         default : return state;
     }
 }
@@ -162,15 +160,13 @@ const Poll = () => {
                                         <span onClick={()=>dispatch("careless")} className={careless ? styles.inactive : null }>Careless</span>
                                     </>
                                 }
-
-                                
-                                
+ 
                             </div>
 
                         </div>
 
                         <textarea name="text" rows="10" placeholder='Enter your text ...' value={textArea} onChange={(e)=> setTextArea(e.target.value)}></textarea>
-                        <br />
+                        
                         <button type='submit'>send</button>
 
                     </div>
