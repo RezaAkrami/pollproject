@@ -1,5 +1,60 @@
-import React , {useState,useRef ,useEffect} from 'react';
+import React , {useState,useRef ,useEffect , useReducer} from 'react';
 import styles from '../style/poll.module.scss';
+
+const initialState = {
+
+    // positive points :
+    fastResponse : false,
+    expertAnswer : false,
+    goodPrice : false,
+    goodBehavior : false,
+    qualityService : false,
+    chronology : false,
+
+    //negative points :
+    slowResponse : false,
+    unexpertAnswer : false,
+    badPrice : false,
+    badBehavior : false,
+    badService : false,
+    careless : false,
+}
+
+const reducer = (state,action)=>{
+
+    switch(action){
+        // positive points :
+        case "fastResponse" :
+            return {...state, fastResponse : !state.fastResponse};
+        case "expertAnswer" :
+            return {...state, expertAnswer : !state.expertAnswer};
+        case "goodPrice" :
+            return {...state, goodPrice : !state.goodPrice};
+        case "goodBehavior" :
+            return {...state, goodBehavior : !state.goodBehavior};
+        case "qualityService" :
+            return {...state, qualityService : !state.qualityService};
+        case "chronology" :
+            return {...state, chronology : !state.chronology};
+
+        //negative points :
+        case "slowResponse" :
+            return {...state, slowResponse : !state.slowResponse};
+        case "unexpertAnswer" :
+            return {...state, unexpertAnswer : !state.unexpertAnswer};
+        case "badPrice" :
+            return {...state, badPrice : !state.badPrice};
+        case "badBehavior" :
+            return {...state, badBehavior : !state.badBehavior};
+        case "badService" :
+            return {...state, badService : !state.badService};
+        case "careless" :
+            return {...state, careless : !state.careless};
+        
+
+        default : return state;
+    }
+}
 
 const Poll = () => {
 
@@ -10,6 +65,9 @@ const Poll = () => {
     //refs
     const positive = useRef(null);
     const negative = useRef(null);
+
+    //reducer
+    const [ data , dispatch ] = useReducer(reducer , initialState);
 
     // Entry of the quality level into the state - Five out of five
     const qualityHandler = e =>{
@@ -42,6 +100,9 @@ const Poll = () => {
         disableState.current.style.border = "1px solid #c1c6cc";
     }
 
+    // reducer destructur
+    const {fastResponse,expertAnswer,goodPrice,goodBehavior,qualityService,chronology,slowResponse,unexpertAnswer,badPrice,badBehavior,badService,careless} = data;
+
     return (
         <div>
             <form action="">
@@ -73,21 +134,31 @@ const Poll = () => {
                                 {toggle 
                                 ? 
                                     <>
-                                        <span>fast response</span>
-                                        <span>Expert answer</span>
-                                        <span>good price</span>
-                                        <span>good behavior</span>
-                                        <span>Quality service</span>
-                                        <span>Chronology</span>
+                                        <span onClick={()=>dispatch("fastResponse")} className={fastResponse && styles.active}>Fast Response</span>
+
+                                        <span onClick={()=>dispatch("expertAnswer")} className={expertAnswer && styles.active}>Expert Answer</span>
+
+                                        <span onClick={()=>dispatch("goodPrice")} className={goodPrice && styles.active}>Good Price</span>
+
+                                        <span onClick={()=>dispatch("goodBehavior")} className={goodBehavior && styles.active}>Good Behavior</span>
+
+                                        <span onClick={()=>dispatch("qualityService")} className={qualityService && styles.active}>Quality Service</span>
+
+                                        <span onClick={()=>dispatch("chronology")} className={chronology && styles.active}>Chronology</span>
                                     </>
                                 :
                                     <>
-                                        <span>slow response</span>
-                                        <span>Unexpert answer</span>
-                                        <span>Bad price</span>
-                                        <span>‌Bad behavior</span>
-                                        <span>Bad service</span>
-                                        <span>Careless</span>
+                                        <span onClick={()=>dispatch("slowResponse")} className={slowResponse && styles.inactive}>Slow Response</span>
+
+                                        <span onClick={()=>dispatch("unexpertAnswer")} className={unexpertAnswer && styles.inactive}>Unexpert Answer</span>
+                                        
+                                        <span onClick={()=>dispatch("badPrice")} className={badPrice && styles.inactive}>Bad Price</span>
+
+                                        <span onClick={()=>dispatch("badBehavior")} className={badBehavior && styles.inactive}>Bad Behavior</span>
+
+                                        <span onClick={()=>dispatch("badService")} className={badService && styles.inactive}>Bad Service</span>
+
+                                        <span onClick={()=>dispatch("careless")} className={careless && styles.inactive}>Careless</span>
                                     </>
                                 }
 

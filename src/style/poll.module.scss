@@ -91,6 +91,15 @@ form{
                         cursor: pointer;
                         margin-bottom: 5px;
                     }
+
+                    .active{
+                        border: 1px solid green;
+                        background-color: rgb(203, 240, 203);
+                    }
+                    .inactive{
+                        border: 1px solid red;
+                        background-color: rgb(248, 213, 213);
+                    }
                 }
 
             }
