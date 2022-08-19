@@ -61,6 +61,7 @@ const Poll = () => {
     // states
     const [ quality , setQuality ] = useState("");
     const [toggle, setToggle] = useState(true);
+    const [textArea, setTextArea] = useState("");
 
     //refs
     const positive = useRef(null);
@@ -105,7 +106,7 @@ const Poll = () => {
 
     return (
         <div>
-            <form action="">
+            <form onSubmit={()=>alert("Your feedback has been recorded.")}>
                 <div className={styles.container}>
                     <div className={styles.texts}>
                         <h1>Dear user</h1>
@@ -134,31 +135,31 @@ const Poll = () => {
                                 {toggle 
                                 ? 
                                     <>
-                                        <span onClick={()=>dispatch("fastResponse")} className={fastResponse && styles.active}>Fast Response</span>
+                                        <span onClick={()=>dispatch("fastResponse")} className={fastResponse ? styles.active : null }>Fast Response</span>
 
-                                        <span onClick={()=>dispatch("expertAnswer")} className={expertAnswer && styles.active}>Expert Answer</span>
+                                        <span onClick={()=>dispatch("expertAnswer")} className={expertAnswer ? styles.active : null }>Expert Answer</span>
 
-                                        <span onClick={()=>dispatch("goodPrice")} className={goodPrice && styles.active}>Good Price</span>
+                                        <span onClick={()=>dispatch("goodPrice")} className={goodPrice ? styles.active : null }>Good Price</span>
 
-                                        <span onClick={()=>dispatch("goodBehavior")} className={goodBehavior && styles.active}>Good Behavior</span>
+                                        <span onClick={()=>dispatch("goodBehavior")} className={goodBehavior ? styles.active : null }>Good Behavior</span>
 
-                                        <span onClick={()=>dispatch("qualityService")} className={qualityService && styles.active}>Quality Service</span>
+                                        <span onClick={()=>dispatch("qualityService")} className={qualityService ? styles.active : null }>Quality Service</span>
 
-                                        <span onClick={()=>dispatch("chronology")} className={chronology && styles.active}>Chronology</span>
+                                        <span onClick={()=>dispatch("chronology")} className={chronology ? styles.active : null }>Chronology</span>
                                     </>
                                 :
                                     <>
-                                        <span onClick={()=>dispatch("slowResponse")} className={slowResponse && styles.inactive}>Slow Response</span>
+                                        <span onClick={()=>dispatch("slowResponse")} className={slowResponse ? styles.inactive : null }>Slow Response</span>
 
-                                        <span onClick={()=>dispatch("unexpertAnswer")} className={unexpertAnswer && styles.inactive}>Unexpert Answer</span>
+                                        <span onClick={()=>dispatch("unexpertAnswer")} className={unexpertAnswer ? styles.inactive : null }>Unexpert Answer</span>
                                         
-                                        <span onClick={()=>dispatch("badPrice")} className={badPrice && styles.inactive}>Bad Price</span>
+                                        <span onClick={()=>dispatch("badPrice")} className={badPrice ? styles.inactive : null }>Bad Price</span>
 
-                                        <span onClick={()=>dispatch("badBehavior")} className={badBehavior && styles.inactive}>Bad Behavior</span>
+                                        <span onClick={()=>dispatch("badBehavior")} className={badBehavior ? styles.inactive : null }>Bad Behavior</span>
 
-                                        <span onClick={()=>dispatch("badService")} className={badService && styles.inactive}>Bad Service</span>
+                                        <span onClick={()=>dispatch("badService")} className={badService ? styles.inactive : null }>Bad Service</span>
 
-                                        <span onClick={()=>dispatch("careless")} className={careless && styles.inactive}>Careless</span>
+                                        <span onClick={()=>dispatch("careless")} className={careless ? styles.inactive : null }>Careless</span>
                                     </>
                                 }
 
@@ -168,7 +169,7 @@ const Poll = () => {
 
                         </div>
 
-                        <textarea name="text" rows="10" placeholder='Enter your text ...'></textarea>
+                        <textarea name="text" rows="10" placeholder='Enter your text ...' value={textArea} onChange={(e)=> setTextArea(e.target.value)}></textarea>
                         <br />
                         <button type='submit'>send</button>
 
