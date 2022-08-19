@@ -27,13 +27,28 @@ form{
             .icons{
                 text-align: center;
                 margin: 1rem 0;
+                margin-bottom: 2rem;
                 i{
                     font-size: 50px;
                     cursor: pointer;
                     margin-left: 1rem;
                     color: #d1d6db;
                 }
-                margin-bottom: 2rem;
+                #green{
+                    color: green;
+                }
+                #greenyellow{
+                    color: greenyellow;
+                }
+                #black{
+                    color: black;
+                }
+                #orange{
+                    color: orange;
+                }
+                #red{
+                    color: red;
+                }
             }
 
             .points{
