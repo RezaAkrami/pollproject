@@ -1,9 +1,15 @@
-import React , {useState} from 'react';
+import React , {useState,useRef ,useEffect} from 'react';
 import styles from '../style/poll.module.scss';
 
 const Poll = () => {
 
+    // states
     const [ quality , setQuality ] = useState("");
+    const [toggle, setToggle] = useState(true);
+
+    //refs
+    const positive = useRef(null);
+    const negative = useRef(null);
 
     // Entry of the quality level into the state - Five out of five
     const qualityHandler = e =>{
@@ -21,6 +27,20 @@ const Poll = () => {
             setQuality("1");
         }
     };  
+
+    // Change toggle style
+    useEffect(()=>{
+        if(toggle){
+            toggleStyle(positive,"green",negative);
+        }else{
+            toggleStyle(negative,"red",positive);
+        }
+    } , [toggle]);
+
+    function toggleStyle(enableState,color,disableState) {
+        enableState.current.style.border = `2px solid ${color}`;
+        disableState.current.style.border = "1px solid #c1c6cc";
+    }
 
     return (
         <div>
@@ -45,19 +65,34 @@ const Poll = () => {
 
                         <div className={styles.points}>
                             <div className={styles.btn}>
-                                <span id={styles.positive}>Positive</span>
-                                <span id={styles.negative}>Negative</span>
+                                <span className={styles.positive} ref={positive} onClick={()=>setToggle(true)}>Positive</span>
+                                <span className={styles.negative} ref={negative} onClick={()=>setToggle(false)}>Negative</span>
                             </div>
 
                             <div className={styles.questions}>
-                                <span>reza</span>
-                                <span>reza</span>
-                                <span>reza</span>
-                                <span>reza</span>
-                                <span>reza</span>
-                                <span>reza</span>
-                                <span>reza</span>
-                                <span>reza</span>
+                                {toggle 
+                                ? 
+                                    <>
+                                        <span>fast response</span>
+                                        <span>Expert answer</span>
+                                        <span>good price</span>
+                                        <span>good behavior</span>
+                                        <span>Quality service</span>
+                                        <span>Chronology</span>
+                                    </>
+                                :
+                                    <>
+                                        <span>slow response</span>
+                                        <span>Unexpert answer</span>
+                                        <span>Bad price</span>
+                                        <span>‌Bad behavior</span>
+                                        <span>Bad service</span>
+                                        <span>Careless</span>
+                                    </>
+                                }
+
+                                
+                                
                             </div>
 
                         </div>

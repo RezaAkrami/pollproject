@@ -59,13 +59,14 @@ form{
                         border: 1px solid #c1c6cc;
                         padding: 12px;
                         background-color: white;
+                        cursor: pointer;
                     }
     
-                    #positive{
+                    .positive{
                         border-top-left-radius: 15px;
                     }
     
-                    #negative{
+                    .negative{
                         border-top-right-radius: 15px;
                         margin-bottom: 1px; 
                     }
@@ -75,6 +76,7 @@ form{
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    flex-wrap: wrap;
                     padding: 1.5rem 1rem;
                     border: 1px solid #c1c6cc;
                     margin-bottom: 1.5rem;
@@ -87,6 +89,7 @@ form{
                         padding:0 7px 2px;
                         border-radius: 8px;
                         cursor: pointer;
+                        margin-bottom: 5px;
                     }
                 }
 
