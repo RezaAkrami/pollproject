@@ -1,0 +1,13 @@
+textarea{
+    margin-bottom: 1rem;
+    width: 100%;
+    border: 1px solid #c1c6cc;
+    border-radius: 15px;
+    outline: none;
+    &:focus{
+        border: 2px solid rgba(153, 103, 201, 0.452);
+    }
+    &::placeholder {
+        padding: 10px 0 0 12px;
+     }
+}

@@ -1,0 +1,37 @@
+.poll{
+
+    h4{
+        margin: 1.5rem auto;
+        background-color: #ffe4c4;
+        padding: 8px;
+        border-radius: 15px;
+        width: 380px;
+    }
+    
+    .icons{
+        text-align: center;
+        margin: 1rem 0;
+        margin-bottom: 2rem;
+        i{
+            font-size: 50px;
+            cursor: pointer;
+            margin-left: 1rem;
+            color: #d1d6db;
+        }
+        #green{
+            color: green;
+        }
+        #greenyellow{
+            color: greenyellow;
+        }
+        #black{
+            color: black;
+        }
+        #orange{
+            color: orange;
+        }
+        #red{
+            color: red;
+        }
+    }
+}

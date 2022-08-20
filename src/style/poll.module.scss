@@ -14,126 +14,20 @@ form{
             padding: .7rem;
         }
 
-        .poll{
-
-            h4{
-                margin: 1.5rem auto;
-                background-color: #ffe4c4;
-                padding: 8px;
-                border-radius: 15px;
-                width: 380px;
+        button{
+            color: white;
+            background-color: #28a745;
+            padding: 7px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            width: 100px;
+            border: 3px solid #28a745;
+            &:hover{
+                background-color: white;
+                color: black;
+                border: 3px solid green;
             }
-
-            .icons{
-                text-align: center;
-                margin: 1rem 0;
-                margin-bottom: 2rem;
-                i{
-                    font-size: 50px;
-                    cursor: pointer;
-                    margin-left: 1rem;
-                    color: #d1d6db;
-                }
-                #green{
-                    color: green;
-                }
-                #greenyellow{
-                    color: greenyellow;
-                }
-                #black{
-                    color: black;
-                }
-                #orange{
-                    color: orange;
-                }
-                #red{
-                    color: red;
-                }
-            }
-
-            .points{
-                text-align: left;
-                .btn{
-                    padding-bottom: 12px;
-                    span{
-                        border: 1px solid #c1c6cc;
-                        padding: 12px;
-                        background-color: white;
-                        cursor: pointer;
-                    }
-    
-                    .positive{
-                        border-top-left-radius: 15px;
-                    }
-    
-                    .negative{
-                        border-top-right-radius: 15px;
-                        margin-bottom: 1px; 
-                    }
-                }
-
-                .questions{
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    flex-wrap: wrap;
-                    padding: 1.5rem 1rem;
-                    border: 1px solid #c1c6cc;
-                    margin-bottom: 1.5rem;
-                    border-top-right-radius: 15px;
-                    border-bottom-right-radius: 15px;
-                    border-bottom-left-radius: 15px;
-
-                    span{
-                        border: 1px solid #c1c6cc;
-                        padding:0 7px 2px;
-                        border-radius: 8px;
-                        cursor: pointer;
-                        margin-bottom: 5px;
-                    }
-
-                    .active{
-                        border: 1px solid green;
-                        background-color: rgb(203, 240, 203);
-                    }
-                    .inactive{
-                        border: 1px solid red;
-                        background-color: rgb(248, 213, 213);
-                    }
-                }
-
-            }
-
-            textarea{
-                margin-bottom: 1rem;
-                width: 100%;
-                border: 1px solid #c1c6cc;
-                border-radius: 15px;
-                outline: none;
-                &:focus{
-                    border: 2px solid rgba(153, 103, 201, 0.452);
-                }
-                &::placeholder {
-                    padding: 10px 0 0 12px;
-                 }
-            }
-
-            button{
-                color: white;
-                background-color: #28a745;
-                padding: 7px 15px;
-                border-radius: 5px;
-                border: none;
-                cursor: pointer;
-                width: 100px;
-                border: 3px solid #28a745;
-                &:hover{
-                    background-color: white;
-                    color: black;
-                    border: 3px solid green;
-                }
-            }
-
         }
     }
 }
